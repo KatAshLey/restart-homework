@@ -1,0 +1,8 @@
+sss|ss
+s|sss--
+-+---+-
+--sss|s
+ss|sss-
+--+---+
+---sss|
+sss|sss
