@@ -1,8 +1,7 @@
 # restart-homework
 homework for ReStart course
 
-Week 02
-Tues    Tic tac toe
-Wed     Caesar cipher
-Thurs   Symmetric encryption
-        Digital signature
+Week 02 <br>
+Tues - Tic tac toe <br>
+Wed - Caesar cipher <br>
+Thurs - Symmetric encryption, Digital signature
