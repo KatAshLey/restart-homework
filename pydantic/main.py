@@ -40,8 +40,8 @@ def main():
         print(book_store01)
         
         #invalid data
-        author_invalid = Author(name="john doe",
-                                author_id="jdoe-6435")
+        author_invalid = Author(name="John Doe",
+                                author_id="j5oe-6435")
         book_invalid = BookItem(name="Not Real",
                                 author=author_invalid,
                                 year_published=2016)

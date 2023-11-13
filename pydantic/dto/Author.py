@@ -1,4 +1,5 @@
 from pydantic import BaseModel, field_validator
+import re
 
 class Author(BaseModel):
     name: str
@@ -13,5 +14,7 @@ class Author(BaseModel):
     @field_validator("author_id")
     @classmethod
     def check_valid_author_id(cls, author_id: str):
-        assert author_id[0:4].isalpha() and author_id[-4:].isnumeric(), "Author Id is not XXXX-YYYY, X is capital letter, and Y is number"
-        return author_id
+        check_id=re.search(r"[A-Z]{4}-[0-9]{4}", author_id)
+        return check_id != None
+        """ assert author_id[0:4].isalpha() and author_id[-4:].isnumeric(), "Author Id is not XXXX-YYYY, X is capital letter, and Y is number"
+        return author_id """
