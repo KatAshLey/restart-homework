@@ -1,8 +1,11 @@
 # restart-homework
 homework for ReStart course
 
-Week 02 <br>
+**Week 02** <br>
 Tues - Tic tac toe <br>
 Wed - Caesar cipher <br>
 Thurs - Symmetric encryption, Digital signature<br>
-Fri - Cars, shapes
+Fri - Cars, Shapes<br>
+<br>
+**Week 03**<br>
+Mon - Modules, Pydantic<br>
