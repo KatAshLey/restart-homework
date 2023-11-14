@@ -16,3 +16,5 @@ https://en.wikipedia.org/wiki/Caesar_cipher
 ![Encryption](image.png)
 
 ![Decryption](image-1.png)
+
+![More hints](image-2.png)
