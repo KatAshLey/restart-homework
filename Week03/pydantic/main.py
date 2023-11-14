@@ -1,3 +1,4 @@
+#defines authors, book items, bookstore. prints bookstore. try/except for invalid entries
 from dto import BookItem, Author, BookStore
 from pydantic import ValidationError
 

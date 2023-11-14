@@ -1,3 +1,4 @@
+#Initialize Book Item with name, author, year published.  Validates year published is not in the future
 from pydantic import BaseModel, field_validator
 from .Author import Author
 

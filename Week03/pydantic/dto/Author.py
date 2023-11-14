@@ -1,3 +1,4 @@
+#author class creates name, author id. validates name starts with capitals, author id is formatted to XXXX-YYYY, X is capital letter, and Y is number
 from pydantic import BaseModel, field_validator
 import re
 
