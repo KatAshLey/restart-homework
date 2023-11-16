@@ -1,45 +1,33 @@
-#creating APIs for items
+from dto import InventoryItem, ItemOrigin
+from typing import Dict, List
+from fastapi import FastAPI,HTTPException
 
-from dto import ItemOrigin, InventoryItem
-from fastapi import FastAPI, HTTPException
 
 app = FastAPI()
 
-#create dictionary
-item01 = InventoryItem(name= "Chocolate",
-                       quantity= 551,
-                       serial_num= "5155465",
-                       origin= ItemOrigin(country= "Ethiopia",
-                                           production_date= "21/05/2038"))
-item02 = InventoryItem(name= "Gummies",
-                       quantity= 6513,
-                       serial_num= "hb568454",
-                       origin= ItemOrigin(country= "Ethiopia",
-                                          production_date= "24/03/3152"))
-item03 = InventoryItem(name= "Chewies",
-                       quantity= 54351,
-                       serial_num= "jjn536156154",
-                       origin= ItemOrigin(country= "Ethiopia",
-                                          production_date= "16/09/1343"))
-my_inventory_items_dict = {
-    item01.serial_num: item01,
-    item02.serial_num: item02,
-    item03.serial_num: item03
-}
-print(my_inventory_items_dict)
+my_inventory_item_dict: Dict[str, InventoryItem] = {}
 
-
-#create PUT APIs
 @app.put("/items/{serial_num}")
-def update_item(name: str, quantity: int, serial_num: str, origin: ItemOrigin):
-    return {"name": name, "quantity": quantity, "serial_num": serial_num, "origin": origin}
+def create_item(item: InventoryItem, serial_num: str) -> None:
+    my_inventory_item_dict[serial_num] = item
+    print(my_inventory_item_dict)
+    
+@app.get("/items/{serial_num}")
+def read_item(serial_num: str) -> InventoryItem:
+    if serial_num in my_inventory_item_dict.keys():
+        return my_inventory_item_dict[serial_num]
+    else:
+        raise HTTPException(status_code= 404, detail= "Item not found")
+    
+@app.delete("/items/{serial_num}")
+def delete_item(serial_num: str) -> Dict:
+    if serial_num in my_inventory_item_dict.keys():
+        my_inventory_item_dict.pop(serial_num)
+        print(my_inventory_item_dict)
+        return {"200": "Successfully deleted"}
+    else:
+        raise HTTPException(status_code= 404, detail= "Item not found")
 
-#create GET APIs
-@app.get("items/{serial_num}")
-def read_item(name: str, quantity: int, serial_num: str, origin: ItemOrigin):
-    if serial_num not in my_inventory_items_dict:
-        raise HTTPException(status_code=404, detail="Item not found")
-    return {"name": name, "quantity": quantity, "serial_num": serial_num, "origin": origin}
-
-
-
+@app.get("/items/")
+def get_items() -> List[InventoryItem]:
+    return my_inventory_item_dict.values()
