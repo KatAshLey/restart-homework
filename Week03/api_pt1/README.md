@@ -22,23 +22,3 @@ GET /items/{serial_num}
 
 How do you test your API?
 Just print out the contents of the dictionaries
-
-
-
-
-
-
-2)
-**Homework 2**
-my_book_items_dict: Dict[str, BookItem]
-    expecting 'name' to be the keys of the dictionary
-
-3)
-**Homework 2**
-PUT /books/{name}
-    body is the type of BookItem
-
-4)
-**Homework 2**
-GET /book/{name}
-    if an item is found in the dictionary above(using dict keys) -> return body BookItem otherwise return HTTP Code 404
