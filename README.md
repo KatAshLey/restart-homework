@@ -13,3 +13,7 @@ Tues - [API_pt1](Week03/api_pt1)<br>
 Wed - [API_pt2](Week03/api_p2)<br>
 Thurs - [added delete, get all apis to API_pt2](Week03/api_pt2)<br>
 Fri - [Testing APIs](Week03/testing_api_pt2/)<br>
+<br>
+**Week 04** <br>
+Mon - [Testing APIs with Fixtures](Week04/testing_fixtures)<br>
+Tues - [SQLite - select, insert, update](Week04/sqlite)<br>
