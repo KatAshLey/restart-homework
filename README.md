@@ -17,3 +17,4 @@ Fri - [Testing APIs](Week03/testing_api_pt2/)<br>
 **Week 04** <br>
 Mon - [Testing APIs with Fixtures](Week04/testing_fixtures)<br>
 Tues - [SQLite - select, insert, update](Week04/sqlite)<br>
+Wed - [Python and SQLite](Week04/python_sqlite)<br>
