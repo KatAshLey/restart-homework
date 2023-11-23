@@ -9,6 +9,7 @@ from fastapi import FastAPI, HTTPException
 @pytest.fixture
 def client():
     yield TestClient(app)
+    #my_book_items_dict.clear()
 
 
 # define good_book01-04, define bad_book01
@@ -69,14 +70,16 @@ def test_many_put_get_api(
 ):
     put_book_request = request.getfixturevalue(put_book)
     get_book_request = request.getfixturevalue(get_book)
-    
+
     # is the page empty
     clear_page = client.get("/books/")
     clear_page_json = clear_page.json()
     print(clear_page_json)
 
     # put book in
-    put_response = client.put(f"/books/{put_book_request['name']}/", json=put_book_request)
+    put_response = client.put(
+        f"/books/{put_book_request['name']}/", json=put_book_request
+    )
     print(f"/books/{put_book_request['name']}/")  # prints url correct /books/Eragon
     print(put_response.status_code)
     assert put_response.status_code == http_code01
@@ -84,10 +87,11 @@ def test_many_put_get_api(
     # get single book
     test = client.get("/books/")
     test_json = test.json()
-    print(test_json) #confirm its in the book list
+    print(test_json)  # confirm its in the book list
     get_response = client.get(f"/books/{get_book_request['name']}/")
     print(get_response.status_code)
     assert get_response.status_code == http_code02
+
 
 ################################################################
 # Anh's help
@@ -116,25 +120,3 @@ def test_many_put_get_api(
         with pytest.raises(HTTPException) as excinfo:
             get_response = client.get(f"/books/{get_book}/")
         assert str(excinfo.value) == "File non_existent_file.txt not found" """
-
-
-#########################################################################
-
-"""     get_book_name = get_book_request["name"]
-    print(get_book_name)
-    if get_book_name == get_response["name"]:
-        print("match")
-        assert get_book_name == get_response["name"]
-    else:
-        print("no match")
-        assert get_book_name == get_response["name"] """
-
-
-"""# get particular book out
-    response = client.get(f"/books/test/{get_book_request['name']}")  # is 200 as its all books if set to "/books/test/"
-    print(f"/books/test/{get_book_request['name']}")  # checks if right location for above
-    test = client.get("/books/test/")
-    test = test.json()
-    print(test)  # check whats in all books
-    print(response.status_code)
-    assert response.status_code == http_code02 """

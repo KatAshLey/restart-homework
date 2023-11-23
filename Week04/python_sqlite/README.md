@@ -1,3 +1,5 @@
+# Example code to use
+
 from typing import Optional
 
 # One line of FastAPI imports here later &#x1f448;
@@ -28,19 +30,19 @@ def on_startup():
 @app.post("/heroes/")
 def create_hero(hero: Hero):
     # implement part 1 here
-    # Create POST API - only meant to create hero for the first time
+# Create POST API - only meant to create hero for the first time
     pass
 
 @app.get("/heroes/{name}")
 def get_hero(name: str):
     # implement part 2 here
-    # Create GET hero API by name
+# Create GET hero API by name
     pass
 
 @app.get("/heroes/")
 def get_heroes():
     # implement part 3 here
-    # Create GET all hero API
+# Create GET all hero API
     pass
         
 # hero_1 = Hero(name="Deadpond", secret_name="Dive Wilson")
